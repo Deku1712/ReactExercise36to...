@@ -3,3 +3,5 @@ yarn global add create-react-app@1.5.2
 npm i bootstrap@4.6.0
 npm i reactstrap react react-dom
 npm i popper.js@1.16.1
+yarn add font-awesome@4.7.0
+yarn add bootstrap-social@5.1.1
