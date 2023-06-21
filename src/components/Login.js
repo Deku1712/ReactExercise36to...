@@ -1,21 +1,30 @@
-import React, { useState } from "react";
+import React, { useRef, useState } from "react";
 
-function Login(){
-        const [name, setName] = useState('');
-        const handleSubmit = (event)=> {
-            event.preventDefault();
-            console.log(`Name: ${name}`);
-        }
-    return(
-        <p>
-            <form onSubmit={handleSubmit}>
-                <label className="col-lg-6">Name:
-                    <input type="text" placeholder="Please input your name" className="form-control" value={name} onChange={(event)=>{setName(event.target.value)}}></input>
-                </label>
-                <button type="submit" className="btn btn-danger">Login</button>
-            </form>
-        </p>
-    )
+function Login() {
+  const formRef = useRef(null);
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    const formData = new FormData(formRef.current);
+    alert(`Name: ${formData.get("name")}`);
+  };
+  return (
+    <p>
+      <form ref={formRef} onSubmit={handleSubmit}>
+        <label className="col-lg-6">
+          Name:
+          <input
+            type="text"
+            placeholder="Please input your name"
+            name="name"
+            className="form-control"
+          ></input>
+        </label>
+        <button type="submit" className="btn btn-danger">
+          Login
+        </button>
+      </form>
+    </p>
+  );
 }
 
 export default Login;
