@@ -11,6 +11,20 @@ import { COMMENTS } from '../shared/comments';
 import { PROMOTIONS } from '../shared/promotions';
 import { LEADERS } from '../shared/leaders';
 import Login from './Login';
+import {withRouter } from 'react-router-dom'
+import { connect } from 'react-redux';
+
+
+const mapStateToProps = state => {
+  return {
+    dishes: state.dishes,
+    comments: state.comments,
+    promotions: state.promotions,
+    leaders: state.leaders
+  }
+}
+
+
 
 class Main extends Component {
 
@@ -64,4 +78,4 @@ class Main extends Component {
   }
 }
 
-export default Main;
+export default (connect(mapStateToProps)(Main));

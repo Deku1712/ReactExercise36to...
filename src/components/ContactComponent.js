@@ -8,8 +8,10 @@ import {
   Label,
   Input,
   Col,
+  Row,
 } from "reactstrap";
 import { Link } from "react-router-dom";
+import { Control, LocalForm, Errors } from "react-redux-form";
 
 class Contact extends Component {
   constructor(props) {
@@ -35,6 +37,12 @@ class Contact extends Component {
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleBlur = this.handleBlur.bind(this);
   }
+  handleSubmit(values) {
+    console.log('Current State is: ' + JSON.stringify(values));
+    alert('Current State is: ' + JSON.stringify(values));
+    // event.preventDefault();
+}
+
 
   handleBlur = (field) => (evt) => {
     this.setState({
